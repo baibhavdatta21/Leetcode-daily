@@ -1,0 +1,28 @@
+int numRescueBoats(vector<int>& pep, int lim) 
+    {
+        sort(pep.begin(),pep.end());
+        int n=pep.size();
+        int i=n-1;
+        int j=0;
+        int count=0;
+        
+        while(i>=j)
+        {
+            if(pep[i]+pep[j]<=lim)
+            {
+                i--;
+                j++;
+                count++;
+            }
+            else
+            {
+                i--;
+                count++;
+            }
+            
+        }
+            
+            
+        
+        return count;
+    }
