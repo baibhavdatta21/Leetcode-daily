@@ -1,0 +1,84 @@
+/* ListNode* swapNodes(ListNode* head, int k) 
+    {
+        int count=0;
+        ListNode* temp=head;
+        
+        while(temp!=NULL)
+        {
+            temp=temp->next;
+            count++;
+        }
+        int k2=count-k+1;
+        temp=head;
+        ListNode* dum1;
+        ListNode* dum2;
+        while(temp!=NULL)
+        {
+            k--;
+            k2--;
+            if(k==0)
+            dum1=temp;
+            if(k2==0)
+            dum2=temp;
+            temp=temp->next;
+            
+        }
+        
+        int val1=dum1->val;
+        int val2=dum2->val;
+        
+        dum1->val=val2;
+        dum2->val=val1;
+        return head;
+        
+        
+    }*/
+    
+    /*ListNode* swapNodes(ListNode* head, int k)
+    {
+        ListNode* temp=head;
+
+        vector<ListNode*> v;
+        while(temp!=NULL)
+        {
+            v.push_back(temp);
+            temp=temp->next;
+        }
+        int n=v.size();
+        ListNode* dum1=v[k-1];
+        ListNode* dum2=v[n-k];
+        int val1=dum1->val;
+        int val2=dum2->val;
+        
+        dum1->val=val2;
+        dum2->val=val1;
+        return head;
+        
+    }*/
+    ListNode* swapNodes(ListNode* head, int k)
+    {
+        ListNode* dum1;
+        ListNode* dum2=head;
+        ListNode* temp=head;
+        
+        while(k!=1)
+        {
+            temp=temp->next;
+            k--;
+        }
+        dum1=temp;
+        
+        temp=temp->next;
+        while(temp!=NULL)
+        {
+            temp=temp->next;
+            dum2=dum2->next;
+        }
+        int val1=dum1->val;
+        int val2=dum2->val;
+        
+        dum1->val=val2;
+        dum2->val=val1;
+        return head;
+        
+    }
